@@ -43,6 +43,7 @@ exports.products_create_product = (req, res, next) => {
     name: req.body.name,
     price: req.body.price,
     productImage: req.files,
+    productSpecifications: req.body.productSpecifications,
     mainCategory: req.body.mainCategory,
     subCategory: req.body.subCategory,
     onSale: req.body.onSale,
