@@ -8,7 +8,7 @@ const productSchema = mongoose.Schema({
   productSpecifications: {type: String, required:true},
   mainCategory: {type: String, required: true},
   subCategory: {type:String, required: true},
-  onSale: {type:Boolean, re quired: false},
+  onSale: {type:Boolean, required: false},
   featured: {type:Boolean, required: false},
   bestSeller: {type:Boolean, required: false},
   hotDeals: {type:Boolean, required: false}

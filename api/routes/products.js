@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require('multer');
+
 // const checkAuth = require('../middleware/check-auth');
 const ProductsController = require('../controllers/products');
 
@@ -32,7 +33,7 @@ const upload = multer({
 
 router.get("/", ProductsController.products_get_all);
 
-router.post("/", upload.array('productImage',4), ProductsController.products_create_product);
+router.post("/", upload.any('productImage'), ProductsController.products_create_product);
 
 router.get("/:productId", ProductsController.products_get_product);
 
