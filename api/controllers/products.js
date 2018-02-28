@@ -9,10 +9,7 @@ exports.products_get_all = (req, res, next) => {
         count: docs.length,
         products: docs.map(doc => {
           return {
-            name: doc.name,
-            price: doc.price,
-            productImage: doc.productImage,
-            _id: doc._id,
+            fullProduct: doc,
             request: {
               type: "GET",
               url: "http://tolexor.herokuapp.com/products/" + doc._id
