@@ -75,7 +75,6 @@ exports.products_create_product = (req, res, next) => {
 exports.products_get_product = (req, res, next) => {
   const id = req.params.productId;
   Product.findById(id)
-    .select("name price _id productImage")
     .exec()
     .then(doc => {
       console.log("From database", doc);
