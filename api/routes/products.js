@@ -37,6 +37,10 @@ router.post("/", upload.any('productImage'), ProductsController.products_create_
 
 router.get("/:productId", ProductsController.products_get_product);
 
+router.get("/category/:mainCategory", ProductsController.products_get_byCategory);
+
+router.get("/subCategory/:subCategory", ProductsController.products_get_bySubCategory);
+
 router.patch("/:productId", ProductsController.products_update_product);
 
 router.delete("/:productId", ProductsController.products_delete);

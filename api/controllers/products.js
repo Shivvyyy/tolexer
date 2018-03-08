@@ -100,6 +100,7 @@ exports.products_get_product = (req, res, next) => {
 
 exports.products_update_product = (req, res, next) => {
   const id = req.params.productId;
+  console.log(req.body);
   const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
@@ -136,6 +137,47 @@ exports.products_delete = (req, res, next) => {
           body: { name: "String", price: "Number" }
         }
       });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};
+
+
+exports.products_get_byCategory = (req, res, next) => {
+  Product
+  .find({mainCategory: req.params.mainCategory })
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs
+      };
+      res.status(200).json(response);
+
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};
+
+exports.products_get_bySubCategory = (req, res, next) => {
+  Product
+  .find({subCategory: req.params.subCategory })
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs
+      };
+      res.status(200).json(response);
+
     })
     .catch(err => {
       console.log(err);
