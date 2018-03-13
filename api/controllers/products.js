@@ -186,3 +186,95 @@ exports.products_get_bySubCategory = (req, res, next) => {
       });
     });
 };
+
+
+exports.products_get_onSale = (req, res, next) => {
+  Product
+  .find({onSale: true })
+    .limit(parseInt(req.params.limit))
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs
+      };
+      res.status(200).json(response);
+
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};
+
+
+
+exports.products_get_featured = (req, res, next) => {
+  Product
+  .find({featured: true })
+    .limit(parseInt(req.params.limit))
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs
+      };
+      res.status(200).json(response);
+
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};
+
+
+exports.products_get_bestSeller = (req, res, next) => {
+  Product
+  .find({bestSeller: true })
+    .limit(parseInt(req.params.limit))
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs
+      };
+      res.status(200).json(response);
+
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};
+
+
+
+
+
+exports.products_get_hotDeals = (req, res, next) => {
+  Product
+  .find({hotDeals: true })
+    .exec()
+    .limit(parseInt(req.params.limit))
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs
+      };
+      res.status(200).json(response);
+
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};

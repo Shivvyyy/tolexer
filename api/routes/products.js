@@ -41,6 +41,14 @@ router.get("/category/:mainCategory", ProductsController.products_get_byCategory
 
 router.get("/subCategory/:subCategory", ProductsController.products_get_bySubCategory);
 
+router.get("/onSale/:limit", ProductsController.products_get_onSale);
+
+router.get("/bestSeller/:limit", ProductsController.products_get_bestSeller);
+
+router.get("/featured/:limit", ProductsController.products_get_featured);
+
+router.get("/hotDeals/:limit", ProductsController.products_get_hotDeals);
+
 router.patch("/:productId", ProductsController.products_update_product);
 
 router.delete("/:productId", ProductsController.products_delete);
