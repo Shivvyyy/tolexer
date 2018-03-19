@@ -261,8 +261,9 @@ exports.products_get_bestSeller = (req, res, next) => {
 exports.products_get_hotDeals = (req, res, next) => {
   Product
   .find({hotDeals: true })
+      .limit(parseInt(req.params.limit))
     .exec()
-    .limit(parseInt(req.params.limit))
+
     .then(docs => {
       const response = {
         count: docs.length,
