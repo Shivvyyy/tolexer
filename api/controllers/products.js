@@ -55,7 +55,7 @@ exports.products_create_product = (req, res, next) => {
       res.status(201).json({
         message: "Created product successfully",
         createdProduct: {
-          name: result.name,
+          nameofproduct: result.name,
           price: result.price,
           time: result.time
           _id: result._id,
