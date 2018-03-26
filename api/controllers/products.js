@@ -57,7 +57,7 @@ exports.products_create_product = (req, res, next) => {
         createdProduct: {
           nameofproduct: result.name,
           price: result.price,
-          time: result.time
+          time: result.time,
           _id: result._id,
           request: {
             type: "GET",
