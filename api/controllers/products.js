@@ -3,7 +3,7 @@ const Product = require("../models/product");
 
 exports.products_get_all = (req, res, next) => {
   Product.find()
-    .sort({ key: 1 })
+    .sort({ key: -1 })
     .exec()
     .then(docs => {
       const response = {
@@ -76,7 +76,7 @@ exports.products_create_product = (req, res, next) => {
 exports.products_get_product = (req, res, next) => {
   const id = req.params.productId;
   Product.findById(id)
-    .sort({ key: 1 })
+    .sort({ key: -1 })
     .exec()
     .then(doc => {
       console.log("From database", doc);
@@ -152,7 +152,7 @@ exports.products_delete = (req, res, next) => {
 exports.products_get_byCategory = (req, res, next) => {
   Product
   .find({mainCategory: req.params.mainCategory })
-    .sort({ key: 1 })
+    .sort({ key: -1 })
     .exec()
     .then(docs => {
       const response = {
@@ -173,7 +173,7 @@ exports.products_get_byCategory = (req, res, next) => {
 exports.products_get_bySubCategory = (req, res, next) => {
   Product
   .find({subCategory: req.params.subCategory })
-    .sort({ key: 1 })
+    .sort({ key: -1 })
     .exec()
     .then(docs => {
       const response = {
@@ -196,7 +196,7 @@ exports.products_get_onSale = (req, res, next) => {
   Product
   .find({onSale: true })
     .limit(parseInt(req.params.limit))
-    .sort({ key: 1 })
+    .sort({ key: -1 })
     .exec()
     .then(docs => {
       const response = {
@@ -220,7 +220,7 @@ exports.products_get_featured = (req, res, next) => {
   Product
   .find({featured: true })
     .limit(parseInt(req.params.limit))
-    .sort({ key: 1 })
+    .sort({ key: -1 })
     .exec()
     .then(docs => {
       const response = {
@@ -243,7 +243,7 @@ exports.products_get_bestSeller = (req, res, next) => {
   Product
   .find({bestSeller: true })
     .limit(parseInt(req.params.limit))
-    .sort({ key: 1 })
+    .sort({ key: -1 })
     .exec()
     .then(docs => {
       const response = {
@@ -269,7 +269,7 @@ exports.products_get_hotDeals = (req, res, next) => {
   Product
   .find({hotDeals: true })
       .limit(parseInt(req.params.limit))
-  .sort({ key: 1 })
+  .sort({ key: -1 })
     .exec()
 
     .then(docs => {
