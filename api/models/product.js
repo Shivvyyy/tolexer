@@ -11,7 +11,8 @@ const productSchema = mongoose.Schema({
   onSale: {type:Boolean, required: false},
   featured: {type:Boolean, required: false},
   bestSeller: {type:Boolean, required: false},
-  hotDeals: {type:Boolean, required: false}
+  hotDeals: {type:Boolean, required: false},
+  created_at : {type: Date, default: Date.now()}
 
 });
 
