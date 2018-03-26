@@ -12,7 +12,7 @@ const productSchema = mongoose.Schema({
   featured: {type:Boolean, required: false},
   bestSeller: {type:Boolean, required: false},
   hotDeals: {type:Boolean, required: false},
- time : { type : Date, default: Date.now }
+ time : { type : Date, default: Date.now, required: true}
 
 });
 
