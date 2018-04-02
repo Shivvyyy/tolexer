@@ -292,7 +292,7 @@ exports.products_get_hotDeals = (req, res, next) => {
 exports.products_search = (req, res, next) => {
  if (req.query.term) {
    var regex = new RegExp(req.query["term"], 'i');
-   var query = Product.find({name: regex}).select('_id name').limit(13);
+   var query = Product.find({name: regex}).select('name');
 
       // Execute query in a callback and return users list
   query.exec(function(err, products) {
