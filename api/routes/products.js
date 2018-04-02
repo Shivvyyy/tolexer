@@ -49,7 +49,7 @@ router.get("/featured/:limit", ProductsController.products_get_featured);
 
 router.get("/hotDeals/:limit", ProductsController.products_get_hotDeals);
 
-router.get("/search", ProductsController.products_search);
+router.get("/search/:term/:limit", ProductsController.products_search);
 
 router.patch("/:productId", ProductsController.products_update_product);
 
