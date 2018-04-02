@@ -290,15 +290,16 @@ exports.products_get_hotDeals = (req, res, next) => {
 
 
 exports.products_search = (req, res, next) => {
- if (req.query.term) {
-   var regex = new RegExp(req.query["term"], 'i');
-   var query = Product.find({name: regex}).select('name');
+ if (req.params.term) {
+   console.log("Shivu");
+   var regex = new RegExp(req.params["term"], 'i');
+   var query = Product.find({name: regex}).select('_id name').limit(parseInt(req.params["limit"]));
 
       // Execute query in a callback and return users list
-  query.exec(function(err, products) {
+  query.exec(function(err, prod) {
       if (!err) {
          // Method to construct the json result set
-         res.status(201).json(products);
+         res.status(201).json(prod);
       } else {
        res.status(500).json(err);
       }
