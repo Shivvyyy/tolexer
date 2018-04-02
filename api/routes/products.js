@@ -49,6 +49,8 @@ router.get("/featured/:limit", ProductsController.products_get_featured);
 
 router.get("/hotDeals/:limit", ProductsController.products_get_hotDeals);
 
+router.get("/search", ProductsController.products_search);
+
 router.patch("/:productId", ProductsController.products_update_product);
 
 router.delete("/:productId", ProductsController.products_delete);
