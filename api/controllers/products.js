@@ -291,7 +291,6 @@ exports.products_get_hotDeals = (req, res, next) => {
 
 exports.products_search = (req, res, next) => {
  if (req.params.term) {
-   console.log("Shivu");
    var regex = new RegExp(req.params["term"], 'i');
    var query = Product.find({name: regex}).select('_id name').limit(parseInt(req.params["limit"]));
 
