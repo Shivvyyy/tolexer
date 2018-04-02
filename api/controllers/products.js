@@ -303,4 +303,5 @@ exports.products_search = (req, res, next) => {
        res.status(500).json(err);
       }
    });
- };
+ }
+};
